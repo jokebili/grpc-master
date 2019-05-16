@@ -1,0 +1,27 @@
+﻿syntax = "proto3";
+
+package proto;
+
+service HelloService{
+	//获取人员列表
+	rpc GetPersons(GetPersonsParam) returns (PersonList);
+	rpc UpdatePerson(Person) returns(UpdateResp);
+}
+
+message PersonList{
+	//人员列表
+	repeated Person list=1;
+}
+message UpdateResp{
+	int64 err=1;
+}
+message GetPersonsParam{
+	string place=1;
+}
+
+message Person {
+	int64 id=1;
+	string name=2;
+	string telphone=3;
+	uint32 sex=4;
+}
